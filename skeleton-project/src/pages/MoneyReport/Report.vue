@@ -130,4 +130,37 @@ const beforeMonth = async () => {
   padding-left: 60px;
   border-left: 2px solid rgb(248, 244, 254);
 }
+
+@media (max-width: 767px) {
+  .title {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .title h1 {
+    font-size: 1.35rem;
+  }
+
+  .title h4 {
+    font-size: 1rem;
+  }
+
+  .selected-month {
+    font-size: 26px;
+  }
+
+  .report-graph-group {
+    flex-direction: column;
+  }
+
+  .report-graph {
+    width: 100%;
+  }
+
+  .graph-right {
+    padding: 20px 0 0;
+    border-left: 0;
+    border-top: 2px solid rgb(248, 244, 254);
+  }
+}
 </style>
