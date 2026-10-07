@@ -120,12 +120,13 @@ const deleteList = async (targetid) => {
       <table class="table table-hover align-middle text-center custom-table">
         <thead>
           <tr>
-            <th style="width: 15%">Date</th>
-            <th class="mobile-hide" style="width: 10%">타입</th>
-            <th class="mobile-hide" style="width: 18%">카테고리</th>
-            <th class="mobile-hide" style="width: 20%">거래명</th>
-            <th style="width: 15%">금액</th>
-            <th style="width: 22%">기능</th>
+            <th style="width: 14%">Date</th>
+            <th class="mobile-hide" style="width: 9%">타입</th>
+            <th class="mobile-hide" style="width: 15%">카테고리</th>
+            <th class="mobile-hide" style="width: 17%">거래명</th>
+            <th style="width: 16%">금액</th>
+            <th style="width: 12%">결제수단</th>
+            <th style="width: 17%">기능</th>
           </tr>
         </thead>
         <tbody>
@@ -151,6 +152,10 @@ const deleteList = async (targetid) => {
             <td :class="value.type === '수입' ? 'text-primary' : 'text-danger'" class="fw-bold text-truncate transaction-amount"
               style="max-width: 0;">
               {{ value.type === '수입' ? '+' : '-' }}{{ value.userMoney.toLocaleString() }}
+            </td>
+
+            <td class="payment-method text-truncate" :title="value.paymentMethod">
+              {{ value.paymentMethod || '-' }}
             </td>
 
             <td>
@@ -300,22 +305,31 @@ const deleteList = async (targetid) => {
     font-size: 0.78rem;
   }
 
-  .custom-table th:first-child,
-  .custom-table td:first-child {
-    width: 42%;
+  .custom-table th:nth-child(1),
+  .custom-table td:nth-child(1) {
+    width: 32%;
   }
 
-  .custom-table th:nth-last-child(2),
-  .custom-table td:nth-last-child(2) {
-    width: 30%;
+  .custom-table th:nth-child(5),
+  .custom-table td:nth-child(5) {
+    width: 24%;
   }
 
-  .custom-table th:last-child,
-  .custom-table td:last-child {
-    width: 28%;
+  .custom-table th:nth-child(6),
+  .custom-table td:nth-child(6) {
+    width: 18%;
+  }
+
+  .custom-table th:nth-child(7),
+  .custom-table td:nth-child(7) {
+    width: 26%;
   }
 
   .transaction-amount {
+    white-space: nowrap;
+  }
+
+  .payment-method {
     white-space: nowrap;
   }
 
