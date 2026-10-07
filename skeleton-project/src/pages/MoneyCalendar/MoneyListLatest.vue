@@ -2,6 +2,7 @@
 import AddTransactionModal from "@/components/AddTransactionModal.vue";
 import EditTransactionModal from "@/components/EditTransactionModal.vue";
 import { ref, computed, watch } from "vue";
+import { useRoute } from "vue-router";
 import { useLoginStore } from "@/stores/login";
 import { useMoneyStore } from "@/stores/money";
 import axios from "axios";
@@ -9,17 +10,37 @@ import { updateBudgetsForTransactionChange } from "@/utils/budget";
 
 const loginStore = useLoginStore();
 const moneyStore = useMoneyStore();
+const currentRoute = useRoute();
 
 // ============================================================
-// 전체 거래내역 데이터 가져오기 및 날짜순 정렬
+// 선택한 월이 있으면 해당 월의 거래내역만 필터링하고 날짜순 정렬
 const isSorted = ref(true);
 
+const selectedYearMonth = computed(() => {
+  const selectedYear = Number(currentRoute.query.year);
+  const selectedMonth = Number(currentRoute.query.month);
+
+  if (!selectedYear || selectedMonth < 1 || selectedMonth > 12) return '';
+
+  return `${selectedYear}-${String(selectedMonth).padStart(2, '0')}`;
+});
+
+const listTitle = computed(() => {
+  if (!selectedYearMonth.value) return '전체 거래내역';
+
+  const [selectedYear, selectedMonth] = selectedYearMonth.value.split('-');
+  return `${selectedYear}년 ${Number(selectedMonth)}월 거래내역`;
+});
+
 const LatestList = computed(() => {
-  const list = [...moneyStore.userMoneyList];
+  const list = moneyStore.userMoneyList.filter((item) => {
+    return !selectedYearMonth.value || item.date.startsWith(selectedYearMonth.value);
+  });
+
   if (isSorted.value) {
-    return list.sort((a, b) => new Date(b.date) - new Date(a.date)); // 최신순
+    return [...list].sort((a, b) => new Date(b.date) - new Date(a.date)); // 최신순
   } else {
-    return list.sort((a, b) => new Date(a.date) - new Date(b.date)); // 과거순
+    return [...list].sort((a, b) => new Date(a.date) - new Date(b.date)); // 과거순
   }
 });
 
@@ -59,6 +80,13 @@ const visiblePages = computed(() => {
 watch(isSorted, () => {
   currentPage.value = 1;
 });
+
+watch(
+  () => [currentRoute.query.year, currentRoute.query.month],
+  () => {
+    currentPage.value = 1;
+  },
+);
 
 // ==========================================================
 // 3. 모달 제어 및 CRUD 기능 로직
@@ -110,7 +138,7 @@ const deleteList = async (targetid) => {
 <template>
   <div class="card shadow-sm rounded-4 p-3 position-relative list-container custom-border">
     <div class="d-flex justify-content-between align-items-center mb-3">
-      <h5 class="fw-bold m-0 text-purple">전체 거래내역</h5>
+      <h5 class="fw-bold m-0 text-purple">{{ listTitle }}</h5>
       <button class="btn btn-outline-purple btn-sm" @click="clickedPlus">
         {{ isSorted ? "과거순정렬" : "최신순정렬" }}
       </button>

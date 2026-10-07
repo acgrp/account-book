@@ -1,8 +1,10 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue';
 import { useMoneyStore } from '@/stores/money';
+import { useRouter } from 'vue-router';
 
 const moneyStore = useMoneyStore();
+const router = useRouter();
 // ==================================================================
 // db.json 값 가져오기(pinia)
 onMounted(() => {
@@ -91,6 +93,18 @@ const changeMonth = (diff) => {
   year.value = date.getFullYear();
   month.value = date.getMonth();
 };
+
+// 월 제목을 클릭하면 현재 달의 거래내역만 확인하도록 이동
+const showSelectedMonthTransactions = () => {
+  router.push({
+    name: 'moneyListLatest',
+    query: {
+      year: year.value,
+      month: month.value + 1,
+    },
+  });
+};
+
 const getFormattedDate = (day) => {
   if (!day) return '';
   const fMonth = String(month.value + 1).padStart(2, '0');
@@ -106,7 +120,16 @@ const getFormattedDate = (day) => {
         <div class="arrow-btn" @click="changeMonth(-1)">
           <i class="fa-solid fa-arrow-left fa-xl"></i>
         </div>
-        <h3 class="fw-bold m-0 header-title">{{ year }}년 {{ month + 1 }}월</h3>
+        <h3
+          class="fw-bold m-0 header-title month-filter-trigger"
+          role="button"
+          tabindex="0"
+          title="클릭하면 해당 월 거래내역을 확인할 수 있습니다"
+          @click="showSelectedMonthTransactions"
+          @keydown.enter="showSelectedMonthTransactions"
+        >
+          {{ year }}년 {{ month + 1 }}월
+        </h3>
         <div class="arrow-btn" @click="changeMonth(1)">
           <i class="fa-solid fa-arrow-right fa-xl"></i>
         </div>
@@ -203,6 +226,18 @@ const getFormattedDate = (day) => {
 
 .header-title {
   color: #f3f7ff !important;
+}
+
+.month-filter-trigger {
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.month-filter-trigger:hover,
+.month-filter-trigger:focus-visible {
+  opacity: 0.82;
+  transform: scale(1.03);
+  outline: none;
 }
 
 .arrow-btn {
