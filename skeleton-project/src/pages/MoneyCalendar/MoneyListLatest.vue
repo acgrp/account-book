@@ -121,9 +121,9 @@ const deleteList = async (targetid) => {
         <thead>
           <tr>
             <th style="width: 15%">Date</th>
-            <th style="width: 10%">타입</th>
-            <th style="width: 18%">카테고리</th>
-            <th style="width: 20%">거래명</th>
+            <th class="mobile-hide" style="width: 10%">타입</th>
+            <th class="mobile-hide" style="width: 18%">카테고리</th>
+            <th class="mobile-hide" style="width: 20%">거래명</th>
             <th style="width: 15%">금액</th>
             <th style="width: 22%">기능</th>
           </tr>
@@ -134,23 +134,23 @@ const deleteList = async (targetid) => {
               {{ value.date }}
             </td>
 
-            <td class="text-truncate" style="max-width: 0;" :title="value.type">
+            <td class="text-truncate mobile-hide" style="max-width: 0;" :title="value.type">
               {{ value.type }}
             </td>
 
-            <td>
+            <td class="mobile-hide">
               <div class="text-truncate" :title="value.category">
                 <span class="badge bg-light text-dark">{{ value.category }}</span>
               </div>
             </td>
 
-            <td class="text-start ps-3 fw-bold text-truncate" style="max-width: 0;" :title="value.title">
+            <td class="text-start ps-3 fw-bold text-truncate mobile-hide" style="max-width: 0;" :title="value.title">
               {{ value.title }}
             </td>
 
-            <td :class="value.type === '수입' ? 'text-primary' : 'text-danger'" class="fw-bold text-truncate"
+            <td :class="value.type === '수입' ? 'text-primary' : 'text-danger'" class="fw-bold text-truncate transaction-amount"
               style="max-width: 0;">
-              {{ value.userMoney.toLocaleString() }}
+              {{ value.type === '수입' ? '+' : '-' }}{{ value.userMoney.toLocaleString() }}
             </td>
 
             <td>
@@ -289,5 +289,39 @@ const deleteList = async (targetid) => {
 .table-responsive::-webkit-scrollbar-thumb {
   background: #dbd0e6;
   border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .custom-table {
+    font-size: 0.78rem;
+  }
+
+  .custom-table th:first-child,
+  .custom-table td:first-child {
+    width: 42%;
+  }
+
+  .custom-table th:nth-last-child(2),
+  .custom-table td:nth-last-child(2) {
+    width: 30%;
+  }
+
+  .custom-table th:last-child,
+  .custom-table td:last-child {
+    width: 28%;
+  }
+
+  .transaction-amount {
+    white-space: nowrap;
+  }
+
+  .btn-xs {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.68rem;
+  }
 }
 </style>
