@@ -90,6 +90,7 @@ import { ref, computed, onMounted } from "vue";
 import { useMoneyStore } from "@/stores/money";
 import axios from "axios";
 import EditTransactionModal from "@/components/EditTransactionModal.vue"; // 수정 모달 컴포넌트 불러오기
+import { updateBudgetsForTransactionChange } from "@/utils/budget";
 const loginStore = useLoginStore();
 const props = defineProps({
   startDate: String,
@@ -166,12 +167,23 @@ const onEditClose = async () => {
 };
 
 const deleteItem = async (id) => {
-  const updatedList = allMoneyList.value.filter((item) => item.id !== id);
+  const response = await axios.get(`/api/users/${loginStore.user.id}`);
+  const currentUser = response.data;
+  const deletedItem = currentUser.moneyList.find((item) => item.id === id);
+  const updatedList = currentUser.moneyList.filter((item) => item.id !== id);
+  const updateData = { moneyList: updatedList };
+
+  if (deletedItem?.type === "수입") {
+    updateData.userBudget = updateBudgetsForTransactionChange(
+      currentUser.userBudget,
+      deletedItem,
+      null,
+    );
+  }
+
+  await axios.patch(`/api/users/${loginStore.user.id}`, updateData);
   allMoneyList.value = updatedList;
   moneyList.value = moneyList.value.filter((item) => item.id !== id);
-  await axios.patch(`/api/users/${loginStore.user.id}`, {
-    moneyList: updatedList,
-  });
 };
 
 onMounted(async () => {
