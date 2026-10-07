@@ -6,6 +6,7 @@ import { useLoginStore } from '@/stores/login';
 import { useRoute, useRouter } from 'vue-router';
 import { useMoneyStore } from '@/stores/money';
 import axios from 'axios';
+import { updateBudgetsForTransactionChange } from '@/utils/budget';
 
 const currentRoute = useRoute();
 const router = useRouter();
@@ -90,13 +91,24 @@ const deleteList = async (targetid) => {
   const userId = loginStore.user.id;
   try {
     const res = await axios.get(`/api/users/${userId}`);
-    const updatedMoneyList = res.data.moneyList.filter(
+    const currentUser = res.data;
+    const deletedItem = currentUser.moneyList.find(
+      (item) => item.id === Number(targetid),
+    );
+    const updatedMoneyList = currentUser.moneyList.filter(
       (item) => item.id !== Number(targetid),
     );
 
-    await axios.patch(`/api/users/${userId}`, {
-      moneyList: updatedMoneyList,
-    });
+    const updateData = { moneyList: updatedMoneyList };
+    if (deletedItem?.type === '수입') {
+      updateData.userBudget = updateBudgetsForTransactionChange(
+        currentUser.userBudget,
+        deletedItem,
+        null,
+      );
+    }
+
+    await axios.patch(`/api/users/${userId}`, updateData);
     await moneyStore.loadData();
   } catch (err) {
     console.log('삭제 실패', err);
