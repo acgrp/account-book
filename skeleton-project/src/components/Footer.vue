@@ -21,4 +21,13 @@
   background: rgb(191, 165, 212);
   color: white;
 }
+
+@media (max-width: 767px) {
+  .footer {
+    height: 88px;
+    padding: 12px 8px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+}
 </style>
