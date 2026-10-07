@@ -31,9 +31,9 @@
         <thead>
           <tr>
             <th>Date</th>
-            <th>타입</th>
-            <th>카테고리</th>
-            <th>거래명</th>
+            <th class="mobile-hide">타입</th>
+            <th class="mobile-hide">카테고리</th>
+            <th class="mobile-hide">거래명</th>
             <th>금액</th>
             <th></th>
           </tr>
@@ -41,19 +41,22 @@
         <tbody>
           <tr v-for="value in paginatedList" :key="value.id">
             <td>{{ value.date }}</td>
-            <td>{{ value.type }}</td>
+            <td class="mobile-hide">{{ value.type }}</td>
             <td
-              :class="value.type === '수입' ? 'text-primary' : 'text-danger'"
-              class="fw-bold"
+              :class="[
+                'mobile-hide',
+                'fw-bold',
+                value.type === '수입' ? 'text-primary' : 'text-danger',
+              ]"
             >
               <span class="badge bg-light text-dark">{{ value.category }}</span>
             </td>
-            <td>{{ value.title }}</td>
+            <td class="mobile-hide">{{ value.title }}</td>
             <td
               :class="value.type === '수입' ? 'text-primary' : 'text-danger'"
-              class="fw-bold"
+              class="fw-bold transaction-amount"
             >
-              {{ value.userMoney.toLocaleString() }}
+              {{ value.type === '수입' ? '+' : '-' }}{{ value.userMoney.toLocaleString() }}
             </td>
             <td>
               <div class="btn-group gap-1">
@@ -306,6 +309,40 @@ const onModalClose = () => {
   font-size: 0.75rem;
   color: #6c757d;
   padding: 0.2rem 0.6rem;
+}
+
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .table {
+    font-size: 0.78rem;
+  }
+
+  .table th:first-child,
+  .table td:first-child {
+    width: 42%;
+  }
+
+  .table th:nth-last-child(2),
+  .table td:nth-last-child(2) {
+    width: 30%;
+  }
+
+  .table th:last-child,
+  .table td:last-child {
+    width: 28%;
+  }
+
+  .transaction-amount {
+    white-space: nowrap;
+  }
+
+  .btn-xs {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.68rem;
+  }
 }
 </style>
 
