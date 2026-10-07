@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useLoginStore } from "@/stores/login";
 import { useMoneyStore } from "@/stores/money";
+import { updateBudgetsForTransactionChange } from "@/utils/budget";
 
 const moneyStore = useMoneyStore();
 const loginStore = useLoginStore();
@@ -16,19 +17,14 @@ console.log("editData", props.editData);
 // 담을 곳 생성
 const inCategories = ref({ "income-category": [] });
 const outCategories = ref({ "outcome-category": [] });
-const account = ref([]);
+const paymentMethods = ["현금", "카드"];
 
 onMounted(async () => {
   // 카테고리 별 정보담기
   const income = await axios.get("/api/income-category");
   const outcome = await axios.get("/api/outcome-category");
-  const res = await axios.get(`/api/users/${loginStore.user.id}`);
   inCategories.value = income.data;
   outCategories.value = outcome.data;
-  account.value = res.data.account;
-
-  console.log("res", res);
-  console.log("account", account);
 
   // 수정 버튼 누른 곳에 원래 있던 값 가져오기
   if (props.editData) {
@@ -37,7 +33,7 @@ onMounted(async () => {
     userMoney.value = props.editData.userMoney;
     title.value = props.editData.title;
     selectedDate.value = props.editData.date;
-    accountInfo.value = props.editData.accountInfo;
+    paymentMethod.value = props.editData.paymentMethod;
     id.value = props.editData.id;
     memo.value = props.editData.memo;
 
@@ -56,7 +52,7 @@ const userMoney = ref("");
 const selectedCategory = ref("");
 const memo = ref("");
 const id = ref(0);
-const accountInfo = ref("");
+const paymentMethod = ref("");
 
 // ===============================================
 // 수정 버튼 누를시 입력된 값들 db.json에 보내기
@@ -70,7 +66,7 @@ const EditBtn = async () => {
     category: selectedCategory.value,
     id: id.value,
     memo: memo.value,
-    accountInfo: accountInfo.value,
+    paymentMethod: paymentMethod.value,
   };
 
   if (!userMoney.value) {
@@ -85,7 +81,7 @@ const EditBtn = async () => {
     alert("거래명을 입력해주세요");
     return;
   }
-  if (!accountInfo.value) {
+  if (!paymentMethod.value) {
     alert("결제수단을 선택해주세요");
     return;
   }
@@ -104,10 +100,20 @@ const EditBtn = async () => {
       item.id === props.editData.id ? editList : item,
     );
 
-    // 3. 서버에 "이 유저의 moneyList만 이걸로 바꿔줘!"라고 PATCH 요청을 보냅니다.
-    await axios.patch(`/api/users/${userId}`, {
+    const updateData = {
       moneyList: updatedMoneyList,
-    });
+    };
+
+    // 수입 거래의 금액·날짜·유형이 바뀌면 예산도 함께 조정합니다.
+    if (props.editData.type === "수입" || editList.type === "수입") {
+      updateData.userBudget = updateBudgetsForTransactionChange(
+        currentUser.userBudget,
+        props.editData,
+        editList,
+      );
+    }
+
+    await axios.patch(`/api/users/${userId}`, updateData);
     // patch('위치', {K : V}) : 위치에 k 위치에 v값으로 바꿈
 
     console.log("수정 성공 0_<");
@@ -194,14 +200,14 @@ const onCome = () => {
 
         <div class="form-row">
           <label>결제수단</label>
-          <select v-model="accountInfo" class="form-select">
+          <select v-model="paymentMethod" class="form-select">
             <option value="">결제 수단 선택</option>
             <option
-              v-for="item in account"
-              :key="item.info"
-              :value="`${item.bank}-${item.info}`"
+              v-for="method in paymentMethods"
+              :key="method"
+              :value="method"
             >
-              {{ item.bank }}-{{ item.info }}
+              {{ method }}
             </option>
           </select>
         </div>
