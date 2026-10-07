@@ -10,7 +10,7 @@
     <div class="main-monitor">
       <div class="left-side-menu">
         <div
-          class="side-menu-title text-select"
+          class="side-menu-title text-select mobile-section-heading"
           @click="router.push({ name: 'options/transactionDate' })"
         >
           거래내역 상세조회
@@ -27,14 +27,14 @@
         >
         <br />
         <div
-          class="side-menu-title text-select"
+          class="side-menu-title text-select mobile-section-heading"
           @click="router.push({ name: 'options/budget' })"
         >
           예산 확인
         </div>
         <RouterLink
           :to="{ name: 'options/budget' }"
-          class="router-link text-select"
+          class="router-link text-select mobile-budget-confirm-link"
           >예산 확인</RouterLink
         >
         <RouterLink
@@ -45,7 +45,7 @@
         <br />
         <RouterLink
           :to="{ name: 'options/moneyreport' }"
-          class="side-menu-title text-select"
+          class="side-menu-title text-select mobile-menu-link"
           >월별 리포트</RouterLink
         >
       </div>
@@ -142,6 +142,16 @@ const router = useRouter();
 
   .left-side-menu br {
     display: none;
+  }
+
+  .left-side-menu .mobile-section-heading,
+  .left-side-menu .mobile-budget-confirm-link {
+    display: none;
+  }
+
+  .left-side-menu .mobile-menu-link {
+    font-size: 0.82rem;
+    margin-top: 0;
   }
 
   .router {
