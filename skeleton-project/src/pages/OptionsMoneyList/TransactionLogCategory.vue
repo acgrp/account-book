@@ -123,6 +123,7 @@ import { useLoginStore } from "@/stores/login";
 import { useMoneyStore } from "@/stores/money";
 import { ref, computed } from "vue";
 import axios from "axios";
+import { updateBudgetsForTransactionChange } from "@/utils/budget";
 import AddTransactionModal from "@/components/AddTransactionModal.vue";
 import EditTransactionModal from "@/components/EditTransactionModal.vue"; // 수정 모달 컴포넌트 불러오기
 
@@ -190,11 +191,21 @@ const search = () => {
 };
 const deleteItem = async (id) => {
   const response = await axios.get(`/api/users/${loginStore.user.id}`);
-  const updatedList = response.data.moneyList.filter((item) => item.id !== id);
+  const currentUser = response.data;
+  const deletedItem = currentUser.moneyList.find((item) => item.id === id);
+  const updatedList = currentUser.moneyList.filter((item) => item.id !== id);
   resultList.value = resultList.value.filter((item) => item.id !== id);
-  await axios.patch(`/api/users/${loginStore.user.id}`, {
-    moneyList: updatedList,
-  });
+  const updateData = { moneyList: updatedList };
+
+  if (deletedItem?.type === "수입") {
+    updateData.userBudget = updateBudgetsForTransactionChange(
+      currentUser.userBudget,
+      deletedItem,
+      null,
+    );
+  }
+
+  await axios.patch(`/api/users/${loginStore.user.id}`, updateData);
 };
 
 const onModalClose = () => {
