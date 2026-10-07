@@ -28,6 +28,14 @@
           <button class="login-btn" @click.stop="login(ID, PW)">LOGIN</button>
         </div>
         <div class="go-join" @click.stop="goJoin">회원가입 하기</div>
+        <div class="demo-account">
+          <strong>포트폴리오 테스트 계정</strong>
+          <span>아이디: demo</span>
+          <span>비밀번호: demo1234</span>
+          <button type="button" @click="fillDemoAccount">
+            테스트 계정으로 입력
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -56,6 +64,11 @@ const login = async (ID, PW) => {
 
 const goJoin = () => {
   emit('go-join');
+};
+
+const fillDemoAccount = () => {
+  ID.value = 'demo';
+  PW.value = 'demo1234';
 };
 </script>
 
@@ -170,6 +183,41 @@ const goJoin = () => {
   color: #e74c3c;
   font-size: 0.85rem;
   margin-bottom: 6px;
+}
+
+.demo-account {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border: 1px solid #eadcf5;
+  border-radius: 12px;
+  background: #fcf9ff;
+  color: #7b4ca1;
+  font-size: 0.78rem;
+}
+
+.demo-account strong {
+  margin-bottom: 3px;
+  font-size: 0.84rem;
+}
+
+.demo-account button {
+  margin-top: 6px;
+  border: 0;
+  border-radius: 999px;
+  padding: 6px 12px;
+  background: #bfa5d4;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+}
+
+.demo-account button:hover {
+  background: #a98bc4;
 }
 
 @media (max-width: 767px) {

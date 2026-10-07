@@ -1,372 +1,293 @@
 {
   "users": [
     {
-      "userID": "hj4094",
-      "userPW": "gPwl09092001",
-      "userName": "한혜지",
+      "userID": "demo",
+      "userPW": "demo1234",
+      "userName": "포트폴리오 테스트 사용자",
       "moneyList": [
         {
-          "title": "티켓팅",
-          "date": "2026-03-07",
-          "userMoney": 50000,
-          "type": "지출",
-          "category": "문화/여가",
-          "id": 834123291,
+          "title": "월급",
+          "date": "2026-10-01",
+          "userMoney": 2400000,
+          "type": "수입",
+          "category": "급여",
+          "id": 2026100101,
+          "memo": "10월 급여",
           "paymentMethod": "카드"
         },
         {
-          "title": "티켓팅",
-          "date": "2026-04-07",
-          "userMoney": 50000,
+          "title": "월세",
+          "date": "2026-10-02",
+          "userMoney": 650000,
           "type": "지출",
-          "category": "문화/여가",
-          "id": 834291,
+          "category": "주거/관리비",
+          "id": 2026100201,
+          "memo": "월 정기 지출",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "점심 식사",
+          "date": "2026-10-03",
+          "userMoney": 9500,
+          "type": "지출",
+          "category": "식비",
+          "id": 2026100301,
+          "memo": "회사 근처 식당",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "버스 교통비",
+          "date": "2026-10-04",
+          "userMoney": 1500,
+          "type": "지출",
+          "category": "교통",
+          "id": 2026100401,
+          "memo": "",
           "paymentMethod": "카드"
         },
         {
           "title": "카페",
-          "date": "2026-04-06",
-          "userMoney": 5500,
+          "date": "2026-10-05",
+          "userMoney": 5000,
           "type": "지출",
-          "category": "식비",
-          "id": 192847,
+          "category": "카페",
+          "id": 2026100501,
           "memo": "아이스 아메리카노",
           "paymentMethod": "카드"
         },
         {
-          "title": "편의점",
-          "date": "2026-04-05",
-          "userMoney": 8200,
+          "title": "통신비",
+          "date": "2026-10-07",
+          "userMoney": 55000,
+          "type": "지출",
+          "category": "통신비",
+          "id": 2026100701,
+          "memo": "휴대폰 요금",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "장보기",
+          "date": "2026-10-08",
+          "userMoney": 82000,
           "type": "지출",
           "category": "식비",
-          "id": 563920,
+          "id": 2026100801,
+          "memo": "주말 식재료",
           "paymentMethod": "카드"
         },
         {
-          "title": "버스",
-          "date": "2026-04-05",
-          "userMoney": 1500,
+          "title": "온라인 구독",
+          "date": "2026-10-10",
+          "userMoney": 17000,
           "type": "지출",
-          "category": "교통",
-          "id": 774512,
+          "category": "문화/여가",
+          "id": 2026101001,
+          "memo": "월 정기 구독",
           "paymentMethod": "카드"
         },
         {
-          "title": "알바비",
-          "date": "2026-04-03",
-          "userMoney": 120000,
+          "title": "외주 수입",
+          "date": "2026-10-12",
+          "userMoney": 180000,
           "type": "수입",
           "category": "급여",
-          "id": 309485,
-          "memo": "주말 근무",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "택시",
-          "date": "2026-04-03",
-          "userMoney": 30000,
-          "type": "지출",
-          "category": "교통",
-          "id": 1775902802558,
-          "memo": "",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "schd 배당금",
-          "date": "2026-04-12",
-          "userMoney": 300000,
-          "type": "수입",
-          "category": "배당금",
-          "id": 1775962444825,
+          "id": 2026101201,
+          "memo": "간단한 웹페이지 작업",
           "paymentMethod": "현금"
         },
         {
-          "title": "삼성전자",
-          "date": "2026-04-13",
-          "userMoney": 1111111,
-          "type": "수입",
-          "category": "배당금",
-          "id": 1775930450210,
-          "memo": "",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "asdfasdf",
-          "date": "2026-04-21",
-          "userMoney": 111111,
-          "type": "수입",
-          "category": "급여",
-          "id": 1775930462690,
-          "memo": "",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "asdfasdfsadf",
-          "date": "2026-04-28",
-          "userMoney": 1111111,
-          "type": "수입",
-          "category": "급여",
-          "id": 1775930480053,
-          "memo": "",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "진짜 길 가다 주움",
-          "date": "2026-04-12",
-          "userMoney": 90000000,
-          "type": "수입",
-          "category": "배당금",
-          "id": 1775993683093,
-          "memo": "",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "로또 당첨",
-          "date": "2026-04-12",
-          "userMoney": 100000000,
-          "type": "수입",
-          "category": "배당금",
-          "id": 1775993700741,
-          "memo": "",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "뽀나쓰",
-          "date": "2026-04-07",
-          "userMoney": 123123,
-          "type": "수입",
-          "category": "배당금",
-          "id": 1776000681018,
-          "memo": "",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "택시",
-          "date": "2026-04-21",
-          "userMoney": 123123,
+          "title": "지하철",
+          "date": "2026-10-14",
+          "userMoney": 12500,
           "type": "지출",
           "category": "교통",
-          "id": 1776000702213,
-          "memo": "",
+          "id": 2026101401,
+          "memo": "교통카드 충전",
           "paymentMethod": "카드"
         },
         {
-          "title": "수리비",
-          "date": "2026-04-28",
-          "userMoney": 22222,
+          "title": "생활용품 구매",
+          "date": "2026-10-17",
+          "userMoney": 34900,
           "type": "지출",
-          "category": "월세",
-          "id": 1776000730189,
-          "memo": "",
+          "category": "생활용품",
+          "id": 2026101701,
+          "memo": "세제와 휴지",
           "paymentMethod": "카드"
-        }
-      ],
-      "userBudget": [
-        {
-          "budgetYearMonth": "2026-01",
-          "budgetTot": 900000,
-          "id": 548291,
-          "budgetCategory": {
-            "식비": 300000,
-            "문화/여가": 200000,
-            "교통": 100000
-          }
         },
         {
-          "budgetYearMonth": "2026-02",
-          "budgetTot": 950000,
-          "id": 772104,
-          "budgetCategory": {
-            "식비": 350000,
-            "쇼핑": 200000,
-            "교통": 100000
-          }
-        },
-        {
-          "budgetYearMonth": "2026-03",
-          "budgetTot": 1000000,
-          "budgetCategory": {
-            "식비": 300000,
-            "문화/여가": 300000,
-            "쇼핑": 200000
-          }
-        }
-      ],
-      "id": 1
-    },
-    {
-      "userID": "guyoungah",
-      "userPW": "som123456789",
-      "userName": "신송윤",
-      "moneyList": [
-        {
-          "title": "점심",
-          "date": "2026-04-07",
-          "userMoney": 9000,
+          "title": "저녁 식사",
+          "date": "2026-10-20",
+          "userMoney": 42000,
           "type": "지출",
           "category": "식비",
-          "id": 681203,
+          "id": 2026102001,
+          "memo": "친구와 저녁",
           "paymentMethod": "카드"
         },
         {
-          "title": "영화",
-          "date": "2026-04-06",
-          "userMoney": 14000,
+          "title": "가을 옷 구매",
+          "date": "2026-10-24",
+          "userMoney": 89000,
           "type": "지출",
-          "category": "문화/여가",
-          "id": 957124,
-          "memo": "팝콘 포함",
+          "category": "쇼핑",
+          "id": 2026102401,
+          "memo": "가을 외투",
           "paymentMethod": "카드"
         },
         {
-          "title": "택시",
-          "date": "2026-04-05",
-          "userMoney": 12000,
+          "title": "월급",
+          "date": "2026-11-01",
+          "userMoney": 2400000,
+          "type": "수입",
+          "category": "급여",
+          "id": 2026110101,
+          "memo": "11월 급여",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "월세",
+          "date": "2026-11-02",
+          "userMoney": 650000,
+          "type": "지출",
+          "category": "주거/관리비",
+          "id": 2026110201,
+          "memo": "월 정기 지출",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "아침 커피",
+          "date": "2026-11-03",
+          "userMoney": 4800,
+          "type": "지출",
+          "category": "카페",
+          "id": 2026110301,
+          "memo": "",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "장보기",
+          "date": "2026-11-05",
+          "userMoney": 76300,
+          "type": "지출",
+          "category": "식비",
+          "id": 2026110501,
+          "memo": "주간 식재료",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "교통비",
+          "date": "2026-11-07",
+          "userMoney": 23400,
           "type": "지출",
           "category": "교통",
-          "id": 442198,
+          "id": 2026110701,
+          "memo": "대중교통 이용",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "도서 구매",
+          "date": "2026-11-09",
+          "userMoney": 28000,
+          "type": "지출",
+          "category": "문화/여가",
+          "id": 2026110901,
+          "memo": "개발 서적",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "외주 수입",
+          "date": "2026-11-12",
+          "userMoney": 220000,
+          "type": "수입",
+          "category": "급여",
+          "id": 2026111201,
+          "memo": "디자인 수정 작업",
+          "paymentMethod": "현금"
+        },
+        {
+          "title": "생활용품 구매",
+          "date": "2026-11-15",
+          "userMoney": 42500,
+          "type": "지출",
+          "category": "생활용품",
+          "id": 2026111501,
+          "memo": "주방용품",
           "paymentMethod": "카드"
         },
         {
           "title": "쇼핑",
-          "date": "2026-04-04",
-          "userMoney": 67000,
+          "date": "2026-11-18",
+          "userMoney": 55000,
           "type": "지출",
           "category": "쇼핑",
-          "id": 713650,
-          "memo": "옷 구매",
+          "id": 2026111801,
+          "memo": "겨울 준비",
           "paymentMethod": "카드"
         },
         {
-          "title": "배당금",
-          "date": "2026-04-02",
-          "userMoney": 50000,
-          "type": "수입",
-          "category": "배당금",
-          "id": 298471,
+          "title": "저녁 식사",
+          "date": "2026-11-24",
+          "userMoney": 38000,
+          "type": "지출",
+          "category": "식비",
+          "id": 2026112401,
+          "memo": "친구와 저녁",
+          "paymentMethod": "카드"
+        },
+        {
+          "title": "통신비",
+          "date": "2026-11-28",
+          "userMoney": 55000,
+          "type": "지출",
+          "category": "통신비",
+          "id": 2026112801,
+          "memo": "휴대폰 요금",
           "paymentMethod": "카드"
         }
       ],
       "userBudget": [
         {
-          "budgetYearMonth": "2026-01",
-          "budgetTot": 700000,
-          "id": 183742,
+          "budgetYearMonth": "2026-10",
+          "budgetTot": 2700000,
+          "id": 202610,
           "budgetCategory": {
-            "식비": 250000,
-            "문화/여가": 150000,
-            "교통": 100000
-          }
-        },
-        {
-          "budgetYearMonth": "2026-02",
-          "budgetTot": 750000,
-          "id": 672913,
-          "budgetCategory": {
-            "식비": 300000,
-            "쇼핑": 200000
-          }
-        },
-        {
-          "budgetYearMonth": "2026-03",
-          "budgetTot": 800000,
-          "id": 904321,
-          "budgetCategory": {
-            "식비": 250000,
+            "식비": 500000,
+            "교통": 150000,
             "문화/여가": 200000,
-            "쇼핑": 150000
-          }
-        }
-      ],
-      "id": 2
-    },
-    {
-      "userID": "acgrp103",
-      "userPW": "qwer1234",
-      "userName": "장진서",
-      "moneyList": [
-        {
-          "title": "커피",
-          "date": "2026-04-07",
-          "userMoney": 4500,
-          "type": "지출",
-          "category": "식비",
-          "id": 555902,
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "지하철",
-          "date": "2026-04-06",
-          "userMoney": 1350,
-          "type": "지출",
-          "category": "교통",
-          "id": 804331,
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "책 구매",
-          "date": "2026-04-05",
-          "userMoney": 22000,
-          "type": "지출",
-          "category": "문화/여가",
-          "id": 267194,
-          "memo": "전공 서적",
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "과외비",
-          "date": "2026-04-03",
-          "userMoney": 200000,
-          "type": "수입",
-          "category": "급여",
-          "id": 990284,
-          "paymentMethod": "카드"
-        },
-        {
-          "title": "저녁",
-          "date": "2026-04-02",
-          "userMoney": 11000,
-          "type": "지출",
-          "category": "식비",
-          "id": 134778,
-          "memo": "치킨",
-          "paymentMethod": "카드"
-        }
-      ],
-      "userBudget": [
-        {
-          "budgetYearMonth": "2026-01",
-          "budgetTot": 600000,
-          "id": 512390,
-          "budgetCategory": {
-            "식비": 200000,
-            "문화/여가": 150000
+            "쇼핑": 150000,
+            "주거/관리비": 650000,
+            "생활용품": 100000,
+            "통신비": 60000,
+            "카페": 100000,
+            "기타": 100000
           }
         },
         {
-          "budgetYearMonth": "2026-02",
-          "budgetTot": 650000,
-          "id": 845120,
+          "budgetYearMonth": "2026-11",
+          "budgetTot": 2700000,
+          "id": 202611,
           "budgetCategory": {
-            "식비": 250000,
-            "교통": 100000
-          }
-        },
-        {
-          "budgetYearMonth": "2026-03",
-          "budgetTot": 700000,
-          "id": 234981,
-          "budgetCategory": {
-            "식비": 200000,
+            "식비": 500000,
+            "교통": 150000,
             "문화/여가": 200000,
-            "쇼핑": 100000
+            "쇼핑": 150000,
+            "주거/관리비": 650000,
+            "생활용품": 100000,
+            "통신비": 60000,
+            "카페": 100000,
+            "기타": 100000
           }
         }
       ],
-      "id": 3
+      "id": 100
     }
   ],
-  "income-category": ["급여", "배당금", "이자"],
+  "income-category": [
+    "급여",
+    "배당금",
+    "이자"
+  ],
   "outcome-category": [
     "식비",
     "문화/여가",
@@ -376,6 +297,7 @@
     "주거/관리비",
     "생활용품",
     "카페",
+    "통신비",
     "기타"
   ]
 }
