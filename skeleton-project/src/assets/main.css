@@ -2,6 +2,26 @@
   font-family: 'MyFont';
   src: url('@/assets/fonts/HoonSaemaulundongR.ttf') format('truetype');
 }
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+button, input, select, textarea {
+  max-width: 100%;
+}
+
 body {
   font-family: 'MyFont', sans-serif;
 }
@@ -34,4 +54,40 @@ body {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .options-main-container {
+    min-height: 0;
+    height: auto;
+    padding: 20px 14px 24px;
+    border-radius: 24px 24px 0 0;
+  }
+
+  .controls-bar {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .report-graph-group {
+    flex-direction: column !important;
+    gap: 24px;
+  }
+
+  .report-graph, .graph-right {
+    width: 100% !important;
+    max-width: 100%;
+    padding-left: 0 !important;
+    border-left: none !important;
+  }
+
+  .report-graph > div {
+    width: 100% !important;
+    height: 280px !important;
+  }
+
+  .graph-right {
+    padding-top: 24px;
+    border-top: 2px solid rgb(248, 244, 254) !important;
+  }
 }
