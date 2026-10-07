@@ -106,4 +106,14 @@ div > .color {
   justify-content: center;
   border: #a98bc4;
 }
+
+@media (max-width: 767px) {
+  .navbar {
+    padding: 0;
+  }
+
+  .offcanvas {
+    width: min(82vw, 320px);
+  }
+}
 </style>
