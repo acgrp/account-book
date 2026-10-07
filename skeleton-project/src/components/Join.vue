@@ -146,6 +146,28 @@ const checkFullForm = () => {
   border-right: 3px rgb(123, 76, 161) solid;
 }
 
+.join-page {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.join-page .main-monitor {
+  width: min(calc(100% - 40px), 920px);
+  margin: 36px auto 0;
+  padding: 30px 34px 0;
+}
+
+.join-main-monitor {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 30px 0 45px;
+}
+
+.join-page > .footer {
+  margin-top: auto;
+}
+
 /* ── REGISTER 타이틀 ── */
 .main-monitor > h1 {
   text-align: center;
@@ -304,6 +326,7 @@ const checkFullForm = () => {
 
 @media (max-width: 767px) {
   .join-page .main-monitor {
+    width: auto;
     margin: 18px 10px 0;
     padding: 26px 12px 0;
     border-radius: 28px 28px 0 0;
