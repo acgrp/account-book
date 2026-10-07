@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <img
-      src="@/assets/mainLogo.jpg"
+      src="@/assets/mainLogo-hd.png"
       alt="메인 로고"
       @click.stop="emit('go-home')"
       class="cursor-pointer"
@@ -61,5 +61,21 @@ img {
 .buttons {
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 767px) {
+  .header {
+    height: 58px;
+    padding: 0 10px;
+  }
+
+  img {
+    width: 78px;
+    height: 42px;
+  }
+
+  .buttons {
+    gap: 4px;
+  }
 }
 </style>
