@@ -325,4 +325,71 @@ onMounted(fetchData);
   margin-top: 15px;
   text-align: right;
 }
+
+@media (max-width: 767px) {
+  .budget-management-page {
+    width: 100%;
+  }
+
+  .budget-management-page .header h1 {
+    font-size: 1.35rem;
+  }
+
+  .title-sub {
+    font-size: 0.85rem;
+  }
+
+  .selected-month {
+    font-size: 26px;
+  }
+
+  .total-budget-row {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+  }
+
+  .total-input {
+    width: 100%;
+    min-width: 0;
+    font-size: 1rem;
+  }
+
+  .total-budget-help {
+    grid-column: 1 / -1;
+    margin: 0;
+    font-size: 0.72rem;
+  }
+
+  .category-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .cat-label {
+    font-size: 0.9rem;
+  }
+
+  .cat-input {
+    width: 110px;
+  }
+
+  .button-wrapper {
+    justify-content: stretch;
+    margin-top: 26px;
+  }
+
+  .complete-btn {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .status-info {
+    text-align: center;
+    font-size: 0.82rem;
+  }
+}
 </style>
