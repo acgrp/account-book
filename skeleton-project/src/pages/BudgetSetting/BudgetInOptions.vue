@@ -22,6 +22,7 @@
         <label class="label-text">전체예산 : </label>
         <input type="text" v-model.number="savedTotalAmount" placeholder="0" class="total-input" />
         <span class="unit-text">원</span>
+        <span class="total-budget-help">(월에 사용가능한 금액을 적어주세요)</span>
       </div>
 
       <hr class="inner-line" />
@@ -263,6 +264,15 @@ onMounted(fetchData);
   text-align: center;
   outline: none;
   font-size: 20px;
+}
+
+.total-budget-help {
+  margin-left: 10px;
+  color: #5b84c4;
+  font-size: 12px;
+  font-weight: normal;
+  white-space: nowrap;
+  vertical-align: middle;
 }
 
 .category-grid {
