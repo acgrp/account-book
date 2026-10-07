@@ -5,6 +5,7 @@ import { ref, computed, watch } from "vue";
 import { useLoginStore } from "@/stores/login";
 import { useMoneyStore } from "@/stores/money";
 import axios from "axios";
+import { updateBudgetsForTransactionChange } from "@/utils/budget";
 
 const loginStore = useLoginStore();
 const moneyStore = useMoneyStore();
@@ -79,12 +80,25 @@ const deleteList = async (targetid) => {
   if (!confirm("정말 삭제하시겠습니까?")) return;
   try {
     const res = await axios.get(`/api/users/${loginStore.user.id}`);
-    const updatedMoneyList = res.data.moneyList.filter(item => item.id !== Number(targetid));
+    const currentUser = res.data;
+    const deletedItem = currentUser.moneyList.find(
+      (item) => item.id === Number(targetid),
+    );
+    const updatedMoneyList = currentUser.moneyList.filter(
+      (item) => item.id !== Number(targetid),
+    );
+    const updateData = { moneyList: updatedMoneyList };
+
+    if (deletedItem?.type === "수입") {
+      updateData.userBudget = updateBudgetsForTransactionChange(
+        currentUser.userBudget,
+        deletedItem,
+        null,
+      );
+    }
 
     // 삭제된 리스트로 사용자 정보 업데이트(Patch)
-    await axios.patch(`/api/users/${loginStore.user.id}`, {
-      moneyList: updatedMoneyList,
-    });
+    await axios.patch(`/api/users/${loginStore.user.id}`, updateData);
 
     await moneyStore.loadData();
   } catch {
