@@ -4,13 +4,6 @@
       "userID": "hj4094",
       "userPW": "gPwl09092001",
       "userName": "한혜지",
-      "account": [
-        {
-          "bank": "KB",
-          "info": "48550201280534",
-          "balance": 100000
-        }
-      ],
       "moneyList": [
         {
           "title": "티켓팅",
@@ -19,7 +12,7 @@
           "type": "지출",
           "category": "문화/여가",
           "id": 834123291,
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "티켓팅",
@@ -28,7 +21,7 @@
           "type": "지출",
           "category": "문화/여가",
           "id": 834291,
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "카페",
@@ -38,7 +31,7 @@
           "category": "식비",
           "id": 192847,
           "memo": "아이스 아메리카노",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "편의점",
@@ -47,7 +40,7 @@
           "type": "지출",
           "category": "식비",
           "id": 563920,
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "버스",
@@ -56,7 +49,7 @@
           "type": "지출",
           "category": "교통",
           "id": 774512,
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "알바비",
@@ -66,7 +59,7 @@
           "category": "급여",
           "id": 309485,
           "memo": "주말 근무",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "택시",
@@ -76,7 +69,7 @@
           "category": "교통",
           "id": 1775902802558,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "schd 배당금",
@@ -84,7 +77,8 @@
           "userMoney": 300000,
           "type": "수입",
           "category": "배당금",
-          "id": 1775962444825
+          "id": 1775962444825,
+          "paymentMethod": "현금"
         },
         {
           "title": "삼성전자",
@@ -94,7 +88,7 @@
           "category": "배당금",
           "id": 1775930450210,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "asdfasdf",
@@ -104,7 +98,7 @@
           "category": "급여",
           "id": 1775930462690,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "asdfasdfsadf",
@@ -114,7 +108,7 @@
           "category": "급여",
           "id": 1775930480053,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "진짜 길 가다 주움",
@@ -124,7 +118,7 @@
           "category": "배당금",
           "id": 1775993683093,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "로또 당첨",
@@ -134,7 +128,7 @@
           "category": "배당금",
           "id": 1775993700741,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "뽀나쓰",
@@ -144,7 +138,7 @@
           "category": "배당금",
           "id": 1776000681018,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "택시",
@@ -154,7 +148,7 @@
           "category": "교통",
           "id": 1776000702213,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "수리비",
@@ -164,7 +158,7 @@
           "category": "월세",
           "id": 1776000730189,
           "memo": "",
-          "accountInfo": "KB-48550201280534"
+          "paymentMethod": "카드"
         }
       ],
       "userBudget": [
@@ -204,13 +198,6 @@
       "userID": "guyoungah",
       "userPW": "som123456789",
       "userName": "신송윤",
-      "account": [
-        {
-          "bank": "우리",
-          "info": "48550201280534",
-          "balance": 150000
-        }
-      ],
       "moneyList": [
         {
           "title": "점심",
@@ -219,7 +206,7 @@
           "type": "지출",
           "category": "식비",
           "id": 681203,
-          "accountInfo": "우리-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "영화",
@@ -229,7 +216,7 @@
           "category": "문화/여가",
           "id": 957124,
           "memo": "팝콘 포함",
-          "accountInfo": "우리-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "택시",
@@ -238,7 +225,7 @@
           "type": "지출",
           "category": "교통",
           "id": 442198,
-          "accountInfo": "우리-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "쇼핑",
@@ -248,7 +235,7 @@
           "category": "쇼핑",
           "id": 713650,
           "memo": "옷 구매",
-          "accountInfo": "우리-48550201280534"
+          "paymentMethod": "카드"
         },
         {
           "title": "배당금",
@@ -257,7 +244,7 @@
           "type": "수입",
           "category": "배당금",
           "id": 298471,
-          "accountInfo": "우리-48550201280534"
+          "paymentMethod": "카드"
         }
       ],
       "userBudget": [
@@ -297,13 +284,6 @@
       "userID": "acgrp103",
       "userPW": "qwer1234",
       "userName": "장진서",
-      "account": [
-        {
-          "bank": "신한",
-          "info": "110499289321",
-          "balance": 200000
-        }
-      ],
       "moneyList": [
         {
           "title": "커피",
@@ -312,7 +292,7 @@
           "type": "지출",
           "category": "식비",
           "id": 555902,
-          "accountInfo": "신한-110499289321"
+          "paymentMethod": "카드"
         },
         {
           "title": "지하철",
@@ -321,7 +301,7 @@
           "type": "지출",
           "category": "교통",
           "id": 804331,
-          "accountInfo": "신한-110499289321"
+          "paymentMethod": "카드"
         },
         {
           "title": "책 구매",
@@ -331,7 +311,7 @@
           "category": "문화/여가",
           "id": 267194,
           "memo": "전공 서적",
-          "accountInfo": "신한-110499289321"
+          "paymentMethod": "카드"
         },
         {
           "title": "과외비",
@@ -340,7 +320,7 @@
           "type": "수입",
           "category": "급여",
           "id": 990284,
-          "accountInfo": "신한-110499289321"
+          "paymentMethod": "카드"
         },
         {
           "title": "저녁",
@@ -350,7 +330,7 @@
           "category": "식비",
           "id": 134778,
           "memo": "치킨",
-          "accountInfo": "신한-110499289321"
+          "paymentMethod": "카드"
         }
       ],
       "userBudget": [
@@ -397,18 +377,5 @@
     "생활용품",
     "카페",
     "기타"
-  ],
-  "bank-category": [
-    "KB",
-    "신한",
-    "하나",
-    "우리",
-    "NH농협",
-    "SC제일",
-    "한국씨티",
-    "iM",
-    "카카오뱅크",
-    "케이뱅크",
-    "토스뱅크"
   ]
 }
