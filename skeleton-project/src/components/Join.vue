@@ -1,7 +1,5 @@
 <template>
-  <div class="outer">
-    <Header />
-    <br />
+  <div class="outer join-page">
     <div class="main-monitor">
       <h1>회원가입</h1>
       <div class="options-main-container join-main-monitor">
@@ -59,7 +57,6 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import Footer from './Footer.vue';
-import Header from './Header.vue';
 
 // 이벤트 전달
 const emit = defineEmits(['new-user']);
@@ -303,5 +300,70 @@ const checkFullForm = () => {
 
 .join-main-monitor button:hover {
   background-color: #7b4ca1;
+}
+
+@media (max-width: 767px) {
+  .join-page .main-monitor {
+    margin: 18px 10px 0;
+    padding: 26px 12px 0;
+    border-radius: 28px 28px 0 0;
+  }
+
+  .main-monitor > h1 {
+    font-size: 1.7rem;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+  }
+
+  .join-main-monitor {
+    padding: 20px 10px 30px;
+    gap: 16px;
+  }
+
+  .join-main-monitor label,
+  .join-main-monitor > div:has(.btn) > label {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+
+  .join-main-monitor label > div {
+    width: auto;
+    min-width: 0;
+    padding: 0 0 6px;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .join-main-monitor input[type='text'],
+  .join-main-monitor input[type='password'] {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .join-main-monitor > div:has(.btn) {
+    align-items: stretch;
+  }
+
+  .join-main-monitor > div:has(.btn) > .btn {
+    align-self: flex-end;
+    margin: 8px 0 0;
+  }
+
+  .join-main-monitor > div:has(.btn) > .text-danger,
+  .join-main-monitor > div:has(> p),
+  .join-main-monitor > div:has(> label):not(:has(.btn)) > div,
+  .join-main-monitor > div:has(> button) {
+    padding-left: 0;
+  }
+
+  .join-main-monitor > div:has(> label):not(:has(.btn)) > div {
+    width: 100%;
+  }
+
+  .join-main-monitor button {
+    width: 100%;
+  }
 }
 </style>
