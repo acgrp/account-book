@@ -109,4 +109,44 @@ const router = useRouter();
   padding-left: 60px;
   padding-bottom: 50px;
 }
+
+@media (max-width: 767px) {
+  .main-monitor {
+    margin: 16px 8px 0;
+    padding: 22px 12px 0;
+    border-radius: 26px 26px 0 0;
+    display: block;
+  }
+
+  .left-side-menu {
+    width: 100%;
+    padding: 0 0 16px;
+    border-right: 0;
+    border-bottom: 1px solid rgb(248, 244, 254);
+    text-align: left;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+  }
+
+  .side-menu-title {
+    margin-top: 0;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  .router-link {
+    margin-top: 0;
+    font-size: 0.82rem;
+  }
+
+  .left-side-menu br {
+    display: none;
+  }
+
+  .router {
+    width: 100%;
+    padding: 22px 0 30px;
+  }
+}
 </style>
