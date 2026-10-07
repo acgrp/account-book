@@ -143,11 +143,12 @@ const isModaClose = () => {
       <table class="table table-hover align-middle text-center custom-table">
         <thead>
           <tr>
-            <th class="mobile-hide" style="width: 25%">거래명</th>
-            <th class="mobile-hide" style="width: 20%">카테고리</th>
-            <th class="mobile-hide" style="width: 15%">타입</th>
-            <th style="width: 18%">금액</th>
-            <th style="width: 22%">기능</th>
+            <th class="mobile-hide" style="width: 23%">거래명</th>
+            <th class="mobile-hide" style="width: 18%">카테고리</th>
+            <th class="mobile-hide" style="width: 13%">타입</th>
+            <th style="width: 16%">금액</th>
+            <th style="width: 12%">결제수단</th>
+            <th style="width: 18%">기능</th>
           </tr>
         </thead>
         <tbody>
@@ -173,6 +174,9 @@ const isModaClose = () => {
               style="max-width: 0"
             >
               {{ value.type === '수입' ? '+' : '-' }}{{ value.userMoney.toLocaleString() }}
+            </td>
+            <td class="payment-method text-truncate" :title="value.paymentMethod">
+              {{ value.paymentMethod || '-' }}
             </td>
             <td>
               <div class="btn-group gap-1">
@@ -355,17 +359,26 @@ const isModaClose = () => {
     font-size: 0.8rem;
   }
 
-  .custom-table th:nth-last-child(2),
-  .custom-table td:nth-last-child(2) {
+  .custom-table th:nth-child(4),
+  .custom-table td:nth-child(4) {
+    width: 34%;
+  }
+
+  .custom-table th:nth-child(5),
+  .custom-table td:nth-child(5) {
+    width: 24%;
+  }
+
+  .custom-table th:nth-child(6),
+  .custom-table td:nth-child(6) {
     width: 42%;
   }
 
-  .custom-table th:last-child,
-  .custom-table td:last-child {
-    width: 58%;
+  .transaction-amount {
+    white-space: nowrap;
   }
 
-  .transaction-amount {
+  .payment-method {
     white-space: nowrap;
   }
 
