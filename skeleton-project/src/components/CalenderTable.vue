@@ -315,4 +315,45 @@ const getFormattedDate = (day) => {
 .text-outcome {
   color: #dc3545;
 }
+
+@media (max-width: 767px) {
+  .custom-border {
+    height: auto;
+    min-height: 0;
+    border-radius: 16px;
+  }
+
+  .calendar-header {
+    padding: 0.75rem !important;
+  }
+
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .arrow-btn i {
+    font-size: 1rem;
+  }
+
+  .days-header {
+    font-size: 0.65rem;
+  }
+
+  .cell-row {
+    min-height: 56px;
+  }
+
+  .day-link {
+    padding: 4px !important;
+  }
+
+  .day-num {
+    font-size: 0.75rem;
+    margin-bottom: 1px;
+  }
+
+  .big-money {
+    font-size: 0.5rem;
+  }
+}
 </style>
