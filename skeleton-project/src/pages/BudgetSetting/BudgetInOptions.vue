@@ -117,12 +117,12 @@ const fetchData = async () => {
   if (!loginStore.user?.id) return;
   try {
     // 1. 카테고리 목록 로드
-    const catResp = await axios.get("http://localhost:3000/outcome-category");
+    const catResp = await axios.get("/api/outcome-category");
     allCategories.value = catResp.data;
 
     // 2. 유저 예산 데이터 로드
     const userResp = await axios.get(
-      `http://localhost:3000/users/${loginStore.user.id}`,
+      `/api/users/${loginStore.user.id}`,
     );
     allBudgets.value = userResp.data.userBudget || [];
 
@@ -179,7 +179,7 @@ const saveBudget = async () => {
     }
 
     // 서버로 전송
-    await axios.patch(`http://localhost:3000/users/${loginStore.user.id}`, {
+    await axios.patch(`/api/users/${loginStore.user.id}`, {
       userBudget: updatedBudgets,
     });
 
