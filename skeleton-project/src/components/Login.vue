@@ -1,7 +1,7 @@
 <template>
   <div class="login-page">
     <div class="logo-box">
-      <img src="@/assets/mainLogo.jpg" alt="메인로고" />
+      <img src="@/assets/mainLogo-hd.png" alt="메인로고" />
     </div>
     <div class="login-box">
       <h1 class="login-title">LOGIN</h1>
@@ -170,5 +170,38 @@ const goJoin = () => {
   color: #e74c3c;
   font-size: 0.85rem;
   margin-bottom: 6px;
+}
+
+@media (max-width: 767px) {
+  .login-page {
+    min-height: 100svh;
+    padding: 24px 16px;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .logo-box {
+    width: min(100%, 360px);
+    height: auto;
+    aspect-ratio: 1.5;
+    border-radius: 22px;
+  }
+
+  .logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .login-box {
+    width: min(100%, 360px);
+    min-width: 0;
+    padding: 28px 20px;
+    border-radius: 22px;
+  }
+
+  .login-title {
+    font-size: 1.7rem;
+  }
 }
 </style>
