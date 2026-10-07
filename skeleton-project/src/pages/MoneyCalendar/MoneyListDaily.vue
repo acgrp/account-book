@@ -143,9 +143,9 @@ const isModaClose = () => {
       <table class="table table-hover align-middle text-center custom-table">
         <thead>
           <tr>
-            <th style="width: 25%">거래명</th>
-            <th style="width: 20%">카테고리</th>
-            <th style="width: 15%">타입</th>
+            <th class="mobile-hide" style="width: 25%">거래명</th>
+            <th class="mobile-hide" style="width: 20%">카테고리</th>
+            <th class="mobile-hide" style="width: 15%">타입</th>
             <th style="width: 18%">금액</th>
             <th style="width: 22%">기능</th>
           </tr>
@@ -153,26 +153,26 @@ const isModaClose = () => {
         <tbody>
           <tr v-for="value in paginatedList" :key="value.id || value.listId">
             <td
-              class="text-start ps-3 fw-bold text-truncate"
+              class="text-start ps-3 fw-bold text-truncate mobile-hide"
               style="max-width: 0"
               :title="value.title"
             >
               {{ value.title }}
             </td>
-            <td>
+            <td class="mobile-hide">
               <div class="text-truncate" :title="value.category">
                 <span class="badge bg-light text-dark">{{
                   value.category
                 }}</span>
               </div>
             </td>
-            <td class="text-truncate" style="max-width: 0">{{ value.type }}</td>
+            <td class="text-truncate mobile-hide" style="max-width: 0">{{ value.type }}</td>
             <td
               :class="value.type === '수입' ? 'text-primary' : 'text-danger'"
-              class="fw-bold text-truncate"
+              class="fw-bold text-truncate transaction-amount"
               style="max-width: 0"
             >
-              {{ value.userMoney.toLocaleString() }}
+              {{ value.type === '수입' ? '+' : '-' }}{{ value.userMoney.toLocaleString() }}
             </td>
             <td>
               <div class="btn-group gap-1">
@@ -344,5 +344,34 @@ const isModaClose = () => {
 .table-responsive::-webkit-scrollbar-thumb {
   background: #dbd0e6;
   border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .custom-table {
+    font-size: 0.8rem;
+  }
+
+  .custom-table th:nth-last-child(2),
+  .custom-table td:nth-last-child(2) {
+    width: 42%;
+  }
+
+  .custom-table th:last-child,
+  .custom-table td:last-child {
+    width: 58%;
+  }
+
+  .transaction-amount {
+    white-space: nowrap;
+  }
+
+  .btn-xs {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.68rem;
+  }
 }
 </style>
