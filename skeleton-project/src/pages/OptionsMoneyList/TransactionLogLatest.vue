@@ -285,6 +285,53 @@ const onModalClose = () => {
 .add-btn:hover {
   background-color: #a98bc4;
 }
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 1.35rem;
+  }
+
+  .controls-bar {
+    align-items: stretch;
+  }
+
+  .filter-btn,
+  .query-btn,
+  .calendar-btn {
+    padding: 8px 11px;
+    font-size: 0.78rem;
+  }
+
+  .date-box-wrapper {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .date-box {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .date-range-label {
+    flex: 1 1 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .calendar-popup {
+    position: static;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .calendar-popup input[type='date'] {
+    width: 100%;
+  }
+
+  .add-btn-wrapper {
+    padding: 12px 0 0;
+  }
+}
 </style>
 
 <!--
