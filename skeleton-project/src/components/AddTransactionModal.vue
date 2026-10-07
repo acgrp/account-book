@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import { useLoginStore } from '@/stores/login';
 import { useMoneyStore } from '@/stores/money';
+import { updateBudgetsForTransactionChange } from '@/utils/budget';
 
 const moneyStore = useMoneyStore();
 const loginStore = useLoginStore();
@@ -12,20 +13,16 @@ const emit = defineEmits(['post', 'close']);
 
 const inCategories = ref({ 'income-category': [] });
 const outCategories = ref({ 'outcome-category': [] });
-const account = ref([]);
 // ===============================================
 // 초기 로딩 시 서버에서 데이터 가져오기
 onMounted(async () => {
   const income = await axios.get('/api/income-category');
   const outcome = await axios.get('/api/outcome-category');
-  const res = await axios.get(`/api/users/${loginStore.user.id}`);
   inCategories.value = income.data;
   outCategories.value = outcome.data;
-  account.value = res.data.account;
 
   console.log('수입데이터 받아오기', inCategories);
   console.log('지출데이터 받아오기', outCategories);
-  console.log('결제수단 데이터 받아오기', account);
 });
 
 // =======================================================
@@ -37,7 +34,8 @@ const title = ref('');
 const userMoney = ref('');
 const selectedCategory = ref('');
 const memo = ref('');
-const accountInfo = ref('');
+const paymentMethod = ref('');
+const paymentMethods = ['현금', '카드'];
 const id = ref(0);
 
 // =======================================================
@@ -59,7 +57,7 @@ const saveBtn = async () => {
     category: selectedCategory.value,
     id: Date.now(),
     memo: memo.value,
-    accountInfo: accountInfo.value,
+    paymentMethod: paymentMethod.value,
   };
 
   // 유효성 검사
@@ -75,7 +73,7 @@ const saveBtn = async () => {
     alert('거래명을 입력해주세요');
     return;
   }
-  if (!accountInfo.value) {
+  if (!paymentMethod.value) {
     alert('결제수단을 선택해주세요');
     return;
   }
@@ -92,10 +90,21 @@ const saveBtn = async () => {
     // 2. 기존의 moneyList 배열에 새로운 항목(newList)을 추가
     const updatedMoneyList = [...currentUser.moneyList, newList];
 
-    // 3. 서버에 로그인한 유저의 moneyList에만 PATCH 요청을 보냅니다.
-    await axios.patch(`/api/users/${userId}`, {
+    const updateData = {
       moneyList: updatedMoneyList,
-    });
+    };
+
+    // 수입을 등록하면 해당 월의 전체예산에 수입 금액을 더합니다.
+    if (!categoryOn.value) {
+      updateData.userBudget = updateBudgetsForTransactionChange(
+        currentUser.userBudget,
+        null,
+        newList,
+      );
+    }
+
+    // 거래 내역과 필요한 경우 월별 전체예산을 함께 저장합니다.
+    await axios.patch(`/api/users/${userId}`, updateData);
 
     console.log('저장 성공 0_<');
     await moneyStore.loadData();
@@ -181,22 +190,18 @@ const onCome = () => {
         </div>
 
         <div class="form-row">
-          <label>결제수단</label>
-          <select v-model="accountInfo" class="form-select">
-            <option value="">은행 카테고리 선택</option>
-            <option
-              v-for="item in account"
-              :key="item.info"
-              :value="`${item.bank}-${item.info}`"
-            >
-              {{ item.bank }}-{{ item.info }}
-            </option>
-          </select>
+          <label>날짜</label>
+          <input type="date" v-model="selectedDate" class="form-input" />
         </div>
 
         <div class="form-row">
-          <label>날짜</label>
-          <input type="date" v-model="selectedDate" class="form-input" />
+          <label>결제수단</label>
+          <select v-model="paymentMethod" class="form-select">
+            <option value="">결제수단 선택</option>
+            <option v-for="method in paymentMethods" :key="method" :value="method">
+              {{ method }}
+            </option>
+          </select>
         </div>
 
         <div class="form-row">
