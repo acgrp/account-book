@@ -1,14 +1,14 @@
 <template>
-  <div class="row mx-4 mb-5 cursor-defalut">
-    <div class="col block">
+  <div class="row mx-4 mb-5 cursor-defalut budget-summary">
+    <div class="col block budget-stat budget-stat-total">
       <div class="budget-title tot-budget">전체 예산</div>
       <div class="money">{{ totBudget.toLocaleString() }} 원</div>
     </div>
-    <div class="col mx-5 block">
+    <div class="col mx-5 block budget-stat budget-stat-outcome">
       <div class="budget-title tot-outcome">총 지출</div>
       <div class="money">{{ totOutcome.toLocaleString() }} 원</div>
     </div>
-    <div class="col block">
+    <div class="col block budget-stat budget-stat-remaining">
       <div class="budget-title left-budget">남은 예산</div>
       <div class="money">{{ leftBudget.toLocaleString() }} 원</div>
     </div>
@@ -135,5 +135,28 @@ watch(
 
 .left-budget {
   color: #bfa5d4;
+}
+
+@media (max-width: 767px) {
+  .budget-summary {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .budget-stat-total,
+  .budget-stat-outcome {
+    display: none;
+  }
+
+  .budget-stat-remaining {
+    width: 100%;
+    flex: 0 0 100%;
+    margin: 0 !important;
+  }
+
+  .budget-stat-remaining .money {
+    font-size: clamp(30px, 11vw, 48px);
+  }
 }
 </style>
