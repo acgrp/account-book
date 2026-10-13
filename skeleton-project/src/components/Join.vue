@@ -156,6 +156,9 @@ const checkFullForm = () => {
   width: min(calc(100% - 40px), 920px);
   margin: 36px auto 0;
   padding: 30px 34px 0;
+  flex: 0 0 auto;
+  border-bottom: 3px solid rgb(123, 76, 161);
+  border-radius: 60px;
 }
 
 .join-main-monitor {
@@ -182,6 +185,10 @@ const checkFullForm = () => {
 /* ── 폼 내부 컨테이너 ── */
 .join-main-monitor {
   padding: 30px 80px 45px;
+  height: auto;
+  min-height: 0;
+  border-bottom: 3px solid #bfa5d4;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -330,6 +337,7 @@ const checkFullForm = () => {
     margin: 18px 10px 0;
     padding: 26px 12px 0;
     border-radius: 28px 28px 0 0;
+    border-bottom: 0;
   }
 
   .main-monitor > h1 {
@@ -341,6 +349,7 @@ const checkFullForm = () => {
   .join-main-monitor {
     padding: 20px 10px 30px;
     gap: 16px;
+    border-radius: 24px;
   }
 
   .join-main-monitor label,
