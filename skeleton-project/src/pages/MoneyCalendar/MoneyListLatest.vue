@@ -148,22 +148,22 @@ const deleteList = async (targetid) => {
       <table class="table table-hover align-middle text-center custom-table">
         <thead>
           <tr>
-            <th style="width: 14%">Date</th>
-            <th class="mobile-hide" style="width: 9%">타입</th>
-            <th class="mobile-hide" style="width: 15%">카테고리</th>
-            <th class="mobile-hide" style="width: 17%">거래명</th>
-            <th style="width: 16%">금액</th>
-            <th style="width: 12%">결제수단</th>
-            <th style="width: 17%">기능</th>
+            <th class="date-column">Date</th>
+            <th class="mobile-hide type-column">타입</th>
+            <th class="mobile-hide category-column">카테고리</th>
+            <th class="mobile-hide title-column">거래명</th>
+            <th class="amount-column">금액</th>
+            <th class="payment-column">결제수단</th>
+            <th class="action-column">기능</th>
           </tr>
         </thead>
         <tbody>
           <tr v-for="value in paginatedList" :key="value.id">
-            <td class="text-muted small text-truncate" style="max-width: 0;" :title="value.date">
+            <td class="text-muted small transaction-date" :title="value.date">
               {{ value.date }}
             </td>
 
-            <td class="text-truncate mobile-hide" style="max-width: 0;" :title="value.type">
+            <td class="text-truncate mobile-hide" :title="value.type">
               {{ value.type }}
             </td>
 
@@ -173,21 +173,20 @@ const deleteList = async (targetid) => {
               </div>
             </td>
 
-            <td class="text-start ps-3 fw-bold text-truncate mobile-hide" style="max-width: 0;" :title="value.title">
+            <td class="text-start ps-3 fw-bold transaction-title mobile-hide" :title="value.title">
               {{ value.title }}
             </td>
 
-            <td :class="value.type === '수입' ? 'text-primary' : 'text-danger'" class="fw-bold text-truncate transaction-amount"
-              style="max-width: 0;">
+            <td :class="value.type === '수입' ? 'text-primary' : 'text-danger'" class="fw-bold transaction-amount">
               {{ value.type === '수입' ? '+' : '-' }}{{ value.userMoney.toLocaleString() }}
             </td>
 
-            <td class="payment-method text-truncate" :title="value.paymentMethod">
+            <td class="payment-method" :title="value.paymentMethod">
               {{ value.paymentMethod || '-' }}
             </td>
 
-            <td>
-              <div class="btn-group gap-1">
+            <td class="action-cell">
+              <div class="transaction-actions">
                 <button class="btn btn-xs btn-outline-secondary" @click="editList(value)">수정</button>
                 <button class="btn btn-xs btn-outline-danger" @click="deleteList(value.id)">삭제</button>
               </div>
@@ -265,9 +264,63 @@ const deleteList = async (targetid) => {
   width: 100%;
 }
 
+.custom-table .date-column,
+.custom-table .transaction-date {
+  width: 18%;
+  white-space: nowrap;
+}
+
+.custom-table .type-column {
+  width: 8%;
+}
+
+.custom-table .category-column {
+  width: 12%;
+}
+
+.custom-table .title-column,
+.custom-table .transaction-title {
+  width: 21%;
+}
+
+.custom-table .amount-column {
+  width: 14%;
+}
+
+.custom-table .payment-column,
+.custom-table .payment-method {
+  width: 9%;
+  white-space: nowrap;
+}
+
+.custom-table .action-column,
+.custom-table .action-cell {
+  width: 18%;
+}
+
+.custom-table .transaction-title {
+  overflow-wrap: anywhere;
+  white-space: normal;
+  line-height: 1.2;
+}
+
+.custom-table .transaction-amount {
+  white-space: nowrap;
+}
+
+.transaction-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
 .btn-xs {
   padding: 0.1rem 0.4rem;
   font-size: 0.75rem;
+  min-width: 2.2rem;
+  white-space: nowrap;
 }
 
 .add-btn {
@@ -333,23 +386,23 @@ const deleteList = async (targetid) => {
     font-size: 0.78rem;
   }
 
-  .custom-table th:nth-child(1),
-  .custom-table td:nth-child(1) {
+  .custom-table .date-column,
+  .custom-table .transaction-date {
     width: 32%;
   }
 
-  .custom-table th:nth-child(5),
-  .custom-table td:nth-child(5) {
+  .custom-table .amount-column,
+  .custom-table .transaction-amount {
     width: 24%;
   }
 
-  .custom-table th:nth-child(6),
-  .custom-table td:nth-child(6) {
+  .custom-table .payment-column,
+  .custom-table .payment-method {
     width: 18%;
   }
 
-  .custom-table th:nth-child(7),
-  .custom-table td:nth-child(7) {
+  .custom-table .action-column,
+  .custom-table .action-cell {
     width: 26%;
   }
 
@@ -364,6 +417,10 @@ const deleteList = async (targetid) => {
   .btn-xs {
     padding: 0.15rem 0.3rem;
     font-size: 0.68rem;
+  }
+
+  .transaction-actions {
+    gap: 0.15rem;
   }
 }
 </style>
