@@ -155,7 +155,7 @@ const checkFullForm = () => {
 .join-page .main-monitor {
   width: min(calc(100% - 40px), 920px);
   margin: 36px auto 0;
-  padding: 30px 34px 0;
+  padding: 30px 34px 12px;
   flex: 0 0 auto;
   border-bottom: 3px solid rgb(123, 76, 161);
   border-radius: 60px;
@@ -335,7 +335,7 @@ const checkFullForm = () => {
   .join-page .main-monitor {
     width: auto;
     margin: 18px 10px 0;
-    padding: 26px 12px 0;
+    padding: 26px 12px 12px;
     border-radius: 28px 28px 0 0;
     border-bottom: 0;
   }
