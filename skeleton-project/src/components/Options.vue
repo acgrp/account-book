@@ -69,6 +69,7 @@ const router = useRouter();
 .main-monitor {
   /* 화면 디자인 */
   margin: 50px 20px 0;
+  max-width: calc(100% - 40px);
   padding: 40px 40px 0;
   background-color: white;
   border-radius: 60px 60px 0 0;
@@ -83,6 +84,7 @@ const router = useRouter();
   display: flex;
   flex-direction: column;
   text-align: end;
+  flex: 0 0 200px;
   width: 200px;
   padding-right: 20px;
   padding-bottom: 100px;
@@ -105,7 +107,10 @@ const router = useRouter();
 }
 
 .router {
-  width: 1054px;
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 0;
+  max-width: 100%;
   padding-left: 60px;
   padding-bottom: 50px;
 }
